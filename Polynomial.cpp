@@ -11,8 +11,8 @@ template <class T>
 class Polynomial
 {
 private:
-	vector<T> container; //коэфиценты
-	vector<T> degrees;   //степени переменной
+	vector<T> container; //РєРѕСЌС„С„РёС†РµРЅС‚С‹
+	vector<T> degrees;   //СЃС‚РµРїРµРЅРё РїРµСЂРµРјРµРЅРЅРѕР№
 public:
 	Polynomial(const vector<T>& Vector, const vector<T>& Degrees)
 	{
@@ -29,7 +29,7 @@ public:
 		return degrees;
 	}
 
-	bool operator == (Polynomial& Poly2) //Перегрузка операторов
+	bool operator == (Polynomial& Poly2) //РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ
 	{
 		return container == Poly2.GetContainer() && degrees == Poly2.GetDegrees();
 	}
@@ -39,7 +39,7 @@ public:
 		return container != Poly2.GetContainer() || degrees == Poly2.GetDegrees();
 	}
 
-	vector<T> operator += (Polynomial& Poly2) //Действия происходят над коэфицентами без учета степени
+	vector<T> operator += (Polynomial& Poly2) //Р”РµР№СЃС‚РІРёСЏ РїСЂРѕРёСЃС…РѕРґСЏС‚ РЅР°Рґ РєРѕСЌС„С„РёС†РµРЅС‚Р°РјРё Р±РµР· СѓС‡РµС‚Р° СЃС‚РµРїРµРЅРё
 	{
 		vector<T> V1 = container;
 		vector<T> V2 = Poly2.GetContainer();
@@ -269,12 +269,12 @@ public:
 
 	}
 
-	T operator [] (const int coef) //нет проверки на выход из диапазона
+	T operator [] (const int coef) //РЅРµС‚ РїСЂРѕРІРµСЂРєРё РЅР° РІС‹С…РѕРґ РёР· РґРёР°РїР°Р·РѕРЅР°
 	{
 		return container[coef];
 	}
 
-	int Degree() //маскимальная степень
+	int Degree() //РјР°СЃРєРёРјР°Р»СЊРЅР°СЏ СЃС‚РµРїРµРЅСЊ
 	{
 		int max = -1;
 		for (int i = 0; i < degrees.size(); i++)
@@ -287,7 +287,7 @@ public:
 		return max;
 	}
 
-	double operator () (const double dote) //вычисление многочлена в точке х = dote
+	double operator () (const double dote) //РІС‹С‡РёСЃР»РµРЅРёРµ РјРЅРѕРіРѕС‡Р»РµРЅР° РІ С‚РѕС‡РєРµ С… = dote
 	{
 		double result = 0;
 		for (int i = 0; i < container.size(); i++)
@@ -297,7 +297,7 @@ public:
 		return result;
 	}
 
-	template <typename T> //Нахождение НОД по алгоритму Евклида
+	template <typename T> //РќР°С…РѕР¶РґРµРЅРёРµ РќРћР” РїРѕ Р°Р»РіРѕСЂРёС‚РјСѓ Р•РІРєР»РёРґР°
 	T Euclid(T a, T b) {
 		while (b != 0) {
 			int temp = b;
@@ -312,7 +312,7 @@ public:
 
 
 template <typename T>
-ostream& operator << (ostream& stream, Polynomial<T>& Poly) //Всегда перегружается отдельно от класса
+ostream& operator << (ostream& stream, Polynomial<T>& Poly) //Р’СЃРµРіРґР° РїРµСЂРµРіСЂСѓР¶Р°РµС‚СЃСЏ РѕС‚РґРµР»СЊРЅРѕ РѕС‚ РєР»Р°СЃСЃР°
 {
 	vector<T> PolyVector = Poly.GetContainer();
 	vector<T> PolyDegreees = Poly.GetDegrees();
