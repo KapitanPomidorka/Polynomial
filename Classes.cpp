@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include "CVector.h"
 #include <string>
 #include "Polynomial.cpp"
 #include <vector>
